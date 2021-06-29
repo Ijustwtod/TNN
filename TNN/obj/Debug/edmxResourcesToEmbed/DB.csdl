@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CommentManagerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CommentManagerEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(CommentManagerModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(CommentManagerModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Acceptance_status" EntityType="CommentManagerModel.Acceptance_status" />
+    <EntitySet Name="Cause" EntityType="CommentManagerModel.Cause" />
+    <EntitySet Name="Contracts" EntityType="CommentManagerModel.Contracts" />
+    <EntitySet Name="Drawing" EntityType="CommentManagerModel.Drawing" />
+    <EntitySet Name="Employee" EntityType="CommentManagerModel.Employee" />
+    <EntitySet Name="Expertise" EntityType="CommentManagerModel.Expertise" />
+    <EntitySet Name="Group" EntityType="CommentManagerModel.Group" />
+    <EntitySet Name="Group_Expertise" EntityType="CommentManagerModel.Group_Expertise" />
+    <EntitySet Name="Kit_status" EntityType="CommentManagerModel.Kit_status" />
+    <EntitySet Name="Organizations" EntityType="CommentManagerModel.Organizations" />
+    <EntitySet Name="Project_Info" EntityType="CommentManagerModel.Project_Info" />
+    <EntitySet Name="Project_Status" EntityType="CommentManagerModel.Project_Status" />
+    <EntitySet Name="Projects" EntityType="CommentManagerModel.Projects" />
+    <EntitySet Name="Remark" EntityType="CommentManagerModel.Remark" />
+    <EntitySet Name="Response_Project_Company_" EntityType="CommentManagerModel.Response_Project_Company_" />
+    <EntitySet Name="Response_status" EntityType="CommentManagerModel.Response_status" />
+    <EntitySet Name="Role" EntityType="CommentManagerModel.Role" />
+    <EntitySet Name="Set_remarks" EntityType="CommentManagerModel.Set_remarks" />
+    <EntitySet Name="sysdiagrams" EntityType="CommentManagerModel.sysdiagrams" />
+    <EntitySet Name="Task" EntityType="CommentManagerModel.Task" />
+    <EntitySet Name="Type_complex__object" EntityType="CommentManagerModel.Type_complex__object" />
+    <EntitySet Name="Users" EntityType="CommentManagerModel.Users" />
+    <AssociationSet Name="FK__Task__Acceptance__681373AD" Association="CommentManagerModel.FK__Task__Acceptance__681373AD">
+      <End Role="Acceptance_status" EntitySet="Acceptance_status" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__Cause_code__6CD828CA" Association="CommentManagerModel.FK__Task__Cause_code__6CD828CA">
+      <End Role="Cause" EntitySet="Cause" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project_I__Drawi__4A8310C6" Association="CommentManagerModel.FK__Project_I__Drawi__4A8310C6">
+      <End Role="Drawing" EntitySet="Drawing" />
+      <End Role="Project_Info" EntitySet="Project_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Group___14270015" Association="CommentManagerModel.FK__Employee__Group___14270015">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Employee__Role_I__160F4887" Association="CommentManagerModel.FK__Employee__Role_I__160F4887">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Projec__16CE6296" Association="CommentManagerModel.FK__Projects__Projec__16CE6296">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__Emp_ID__17036CC0" Association="CommentManagerModel.FK__Users__Emp_ID__17036CC0">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project_I__Exper__5224328E" Association="CommentManagerModel.FK__Project_I__Exper__5224328E">
+      <End Role="Expertise" EntitySet="Expertise" />
+      <End Role="Project_Info" EntitySet="Project_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Remark__Branch_I__43D61337" Association="CommentManagerModel.FK__Remark__Branch_I__43D61337">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Remark" EntitySet="Remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project_I__Group__531856C7" Association="CommentManagerModel.FK__Project_I__Group__531856C7">
+      <End Role="Group_Expertise" EntitySet="Group_Expertise" />
+      <End Role="Project_Info" EntitySet="Project_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Set_of_re__Kit_s__5D95E53A" Association="CommentManagerModel.FK__Set_of_re__Kit_s__5D95E53A">
+      <End Role="Kit_status" EntitySet="Kit_status" />
+      <End Role="Set_remarks" EntitySet="Set_remarks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Custom__2A164134" Association="CommentManagerModel.FK__Projects__Custom__2A164134">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Genera__2BFE89A6" Association="CommentManagerModel.FK__Projects__Genera__2BFE89A6">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Сreato__2B0A656D" Association="CommentManagerModel.FK__Projects__Сreato__2B0A656D">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__Customer_I__662B2B3B" Association="CommentManagerModel.FK__Task__Customer_I__662B2B3B">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__Performer___65370702" Association="CommentManagerModel.FK__Task__Performer___65370702">
+      <End Role="Organizations" EntitySet="Organizations" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Project_I__Type___51300E55" Association="CommentManagerModel.FK__Project_I__Type___51300E55">
+      <End Role="Type_complex__object" EntitySet="Type_complex__object" />
+      <End Role="Project_Info" EntitySet="Project_Info" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Projec__1A9EF37A" Association="CommentManagerModel.FK__Projects__Projec__1A9EF37A">
+      <End Role="Project_Info" EntitySet="Project_Info" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Projects__Status__0C50D423" Association="CommentManagerModel.FK__Projects__Status__0C50D423">
+      <End Role="Project_Status" EntitySet="Project_Status" />
+      <End Role="Projects" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Remark__Project___58D1301D" Association="CommentManagerModel.FK__Remark__Project___58D1301D">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Remark" EntitySet="Remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__Project_in__671F4F74" Association="CommentManagerModel.FK__Task__Project_in__671F4F74">
+      <End Role="Projects" EntitySet="Projects" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Remark__Response__40F9A68C" Association="CommentManagerModel.FK__Remark__Response__40F9A68C">
+      <End Role="Response_status" EntitySet="Response_status" />
+      <End Role="Remark" EntitySet="Remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Remark__Response__57DD0BE4" Association="CommentManagerModel.FK__Remark__Response__57DD0BE4">
+      <End Role="Response_Project_Company_" EntitySet="Response_Project_Company_" />
+      <End Role="Remark" EntitySet="Remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Remark__Set_Rema__5E8A0973" Association="CommentManagerModel.FK__Remark__Set_Rema__5E8A0973">
+      <End Role="Set_remarks" EntitySet="Set_remarks" />
+      <End Role="Remark" EntitySet="Remark" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Task__Response_p__6442E2C9" Association="CommentManagerModel.FK__Task__Response_p__6442E2C9">
+      <End Role="Response_Project_Company_" EntitySet="Response_Project_Company_" />
+      <End Role="Task" EntitySet="Task" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Acceptance_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Task" Relationship="CommentManagerModel.FK__Task__Acceptance__681373AD" FromRole="Acceptance_status" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Cause">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CodeCEPITR" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Default_code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Task" Relationship="CommentManagerModel.FK__Task__Cause_code__6CD828CA" FromRole="Cause" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Contracts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Attachment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Drawing">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Project_Info" Relationship="CommentManagerModel.FK__Project_I__Drawi__4A8310C6" FromRole="Drawing" ToRole="Project_Info" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Group_Id" Type="Int32" Nullable="false" />
+    <Property Name="Role_ID" Type="Int32" Nullable="false" />
+    <Property Name="Fname_" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Sname" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Lname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="Int32" />
+    <Property Name="E_mail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Group" Relationship="CommentManagerModel.FK__Employee__Group___14270015" FromRole="Employee" ToRole="Group" />
+    <NavigationProperty Name="Role" Relationship="CommentManagerModel.FK__Employee__Role_I__160F4887" FromRole="Employee" ToRole="Role" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Projects__Projec__16CE6296" FromRole="Employee" ToRole="Projects" />
+    <NavigationProperty Name="Users" Relationship="CommentManagerModel.FK__Users__Emp_ID__17036CC0" FromRole="Employee" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Expertise">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Project_Info" Relationship="CommentManagerModel.FK__Project_I__Exper__5224328E" FromRole="Expertise" ToRole="Project_Info" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="CommentManagerModel.FK__Employee__Group___14270015" FromRole="Group" ToRole="Employee" />
+    <NavigationProperty Name="Remark" Relationship="CommentManagerModel.FK__Remark__Branch_I__43D61337" FromRole="Group" ToRole="Remark" />
+  </EntityType>
+  <EntityType Name="Group_Expertise">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Project_Info" Relationship="CommentManagerModel.FK__Project_I__Group__531856C7" FromRole="Group_Expertise" ToRole="Project_Info" />
+  </EntityType>
+  <EntityType Name="Kit_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Set_remarks" Relationship="CommentManagerModel.FK__Set_of_re__Kit_s__5D95E53A" FromRole="Kit_status" ToRole="Set_remarks" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Projects__Custom__2A164134" FromRole="Organizations" ToRole="Projects" />
+    <NavigationProperty Name="Projects1" Relationship="CommentManagerModel.FK__Projects__Genera__2BFE89A6" FromRole="Organizations" ToRole="Projects" />
+    <NavigationProperty Name="Projects2" Relationship="CommentManagerModel.FK__Projects__Сreato__2B0A656D" FromRole="Organizations" ToRole="Projects" />
+    <NavigationProperty Name="Task" Relationship="CommentManagerModel.FK__Task__Customer_I__662B2B3B" FromRole="Organizations" ToRole="Task" />
+    <NavigationProperty Name="Task1" Relationship="CommentManagerModel.FK__Task__Performer___65370702" FromRole="Organizations" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Project_Info">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Drawing_ID" Type="Int32" Nullable="false" />
+    <Property Name="Object_name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Type_complex__object_ID" Type="Int32" Nullable="false" />
+    <Property Name="Expertise_ID" Type="Int32" Nullable="false" />
+    <Property Name="Group_Expertise_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Drawing" Relationship="CommentManagerModel.FK__Project_I__Drawi__4A8310C6" FromRole="Project_Info" ToRole="Drawing" />
+    <NavigationProperty Name="Expertise" Relationship="CommentManagerModel.FK__Project_I__Exper__5224328E" FromRole="Project_Info" ToRole="Expertise" />
+    <NavigationProperty Name="Group_Expertise" Relationship="CommentManagerModel.FK__Project_I__Group__531856C7" FromRole="Project_Info" ToRole="Group_Expertise" />
+    <NavigationProperty Name="Type_complex__object" Relationship="CommentManagerModel.FK__Project_I__Type___51300E55" FromRole="Project_Info" ToRole="Type_complex__object" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Projects__Projec__1A9EF37A" FromRole="Project_Info" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Project_Status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Projects__Status__0C50D423" FromRole="Project_Status" ToRole="Projects" />
+  </EntityType>
+  <EntityType Name="Projects">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Contract_number" Type="Int32" Nullable="false" />
+    <Property Name="Year" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Project_manager" Type="Int32" Nullable="false" />
+    <Property Name="Project_info_ID" Type="Int32" />
+    <Property Name="Status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+    <Property Name="General_designer_ID" Type="Int32" Nullable="false" />
+    <Property Name="Сreator_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="CommentManagerModel.FK__Projects__Projec__16CE6296" FromRole="Projects" ToRole="Employee" />
+    <NavigationProperty Name="Organizations" Relationship="CommentManagerModel.FK__Projects__Custom__2A164134" FromRole="Projects" ToRole="Organizations" />
+    <NavigationProperty Name="Organizations1" Relationship="CommentManagerModel.FK__Projects__Genera__2BFE89A6" FromRole="Projects" ToRole="Organizations" />
+    <NavigationProperty Name="Organizations2" Relationship="CommentManagerModel.FK__Projects__Сreato__2B0A656D" FromRole="Projects" ToRole="Organizations" />
+    <NavigationProperty Name="Project_Info" Relationship="CommentManagerModel.FK__Projects__Projec__1A9EF37A" FromRole="Projects" ToRole="Project_Info" />
+    <NavigationProperty Name="Project_Status" Relationship="CommentManagerModel.FK__Projects__Status__0C50D423" FromRole="Projects" ToRole="Project_Status" />
+    <NavigationProperty Name="Remark" Relationship="CommentManagerModel.FK__Remark__Project___58D1301D" FromRole="Projects" ToRole="Remark" />
+    <NavigationProperty Name="Task" Relationship="CommentManagerModel.FK__Task__Project_in__671F4F74" FromRole="Projects" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Remark">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Response_status" Type="Int32" Nullable="false" />
+    <Property Name="Response_project_company_" Type="Int32" />
+    <Property Name="Expert_review" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Project_info" Type="Int32" Nullable="false" />
+    <Property Name="Expert_comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Branch_Id" Type="Int32" Nullable="false" />
+    <Property Name="Set_Remarks_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="CommentManagerModel.FK__Remark__Branch_I__43D61337" FromRole="Remark" ToRole="Group" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Remark__Project___58D1301D" FromRole="Remark" ToRole="Projects" />
+    <NavigationProperty Name="Response_status1" Relationship="CommentManagerModel.FK__Remark__Response__40F9A68C" FromRole="Remark" ToRole="Response_status" />
+    <NavigationProperty Name="Response_Project_Company_1" Relationship="CommentManagerModel.FK__Remark__Response__57DD0BE4" FromRole="Remark" ToRole="Response_Project_Company_" />
+    <NavigationProperty Name="Set_remarks" Relationship="CommentManagerModel.FK__Remark__Set_Rema__5E8A0973" FromRole="Remark" ToRole="Set_remarks" />
+  </EntityType>
+  <EntityType Name="Response_Project_Company_">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Remark" Relationship="CommentManagerModel.FK__Remark__Response__57DD0BE4" FromRole="Response_Project_Company_" ToRole="Remark" />
+    <NavigationProperty Name="Task" Relationship="CommentManagerModel.FK__Task__Response_p__6442E2C9" FromRole="Response_Project_Company_" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Response_status">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Remark" Relationship="CommentManagerModel.FK__Remark__Response__40F9A68C" FromRole="Response_status" ToRole="Remark" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="CommentManagerModel.FK__Employee__Role_I__160F4887" FromRole="Role" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Set_remarks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Time_preparing_responses" Type="DateTime" Precision="7" />
+    <Property Name="Count_remarks" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Kit_status_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Kit_status" Relationship="CommentManagerModel.FK__Set_of_re__Kit_s__5D95E53A" FromRole="Set_remarks" ToRole="Kit_status" />
+    <NavigationProperty Name="Remark" Relationship="CommentManagerModel.FK__Remark__Set_Rema__5E8A0973" FromRole="Set_remarks" ToRole="Remark" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Time" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="Attachment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Cause_code_ID" Type="Int32" Nullable="false" />
+    <Property Name="Performer_ID" Type="Int32" Nullable="false" />
+    <Property Name="Response_project_company__ID" Type="Int32" Nullable="false" />
+    <Property Name="Project_info_ID" Type="Int32" Nullable="false" />
+    <Property Name="Acceptance_status_ID" Type="Int32" Nullable="false" />
+    <Property Name="Customer_ID" Type="Int32" Nullable="false" />
+    <Property Name="Date_completion" Type="DateTime" Precision="0" />
+    <Property Name="Text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Link_On_Documentation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Date_Create" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Acceptance_status" Relationship="CommentManagerModel.FK__Task__Acceptance__681373AD" FromRole="Task" ToRole="Acceptance_status" />
+    <NavigationProperty Name="Cause" Relationship="CommentManagerModel.FK__Task__Cause_code__6CD828CA" FromRole="Task" ToRole="Cause" />
+    <NavigationProperty Name="Organizations" Relationship="CommentManagerModel.FK__Task__Customer_I__662B2B3B" FromRole="Task" ToRole="Organizations" />
+    <NavigationProperty Name="Organizations1" Relationship="CommentManagerModel.FK__Task__Performer___65370702" FromRole="Task" ToRole="Organizations" />
+    <NavigationProperty Name="Projects" Relationship="CommentManagerModel.FK__Task__Project_in__671F4F74" FromRole="Task" ToRole="Projects" />
+    <NavigationProperty Name="Response_Project_Company_" Relationship="CommentManagerModel.FK__Task__Response_p__6442E2C9" FromRole="Task" ToRole="Response_Project_Company_" />
+  </EntityType>
+  <EntityType Name="Type_complex__object">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Info" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Project_Info" Relationship="CommentManagerModel.FK__Project_I__Type___51300E55" FromRole="Type_complex__object" ToRole="Project_Info" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Login" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Emp_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employee" Relationship="CommentManagerModel.FK__Users__Emp_ID__17036CC0" FromRole="Users" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK__Task__Acceptance__681373AD">
+    <End Type="CommentManagerModel.Acceptance_status" Role="Acceptance_status" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Acceptance_status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Acceptance_status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__Cause_code__6CD828CA">
+    <End Type="CommentManagerModel.Cause" Role="Cause" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cause">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Cause_code_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project_I__Drawi__4A8310C6">
+    <End Type="CommentManagerModel.Drawing" Role="Drawing" Multiplicity="1" />
+    <End Type="CommentManagerModel.Project_Info" Role="Project_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Drawing">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project_Info">
+        <PropertyRef Name="Drawing_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Group___14270015">
+    <End Type="CommentManagerModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="CommentManagerModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Group_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Employee__Role_I__160F4887">
+    <End Type="CommentManagerModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="CommentManagerModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Role_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Projec__16CE6296">
+    <End Type="CommentManagerModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="Project_manager" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__Emp_ID__17036CC0">
+    <End Type="CommentManagerModel.Employee" Role="Employee" Multiplicity="1" />
+    <End Type="CommentManagerModel.Users" Role="Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="Emp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project_I__Exper__5224328E">
+    <End Type="CommentManagerModel.Expertise" Role="Expertise" Multiplicity="1" />
+    <End Type="CommentManagerModel.Project_Info" Role="Project_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Expertise">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project_Info">
+        <PropertyRef Name="Expertise_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Remark__Branch_I__43D61337">
+    <End Type="CommentManagerModel.Group" Role="Group" Multiplicity="1" />
+    <End Type="CommentManagerModel.Remark" Role="Remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Remark">
+        <PropertyRef Name="Branch_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project_I__Group__531856C7">
+    <End Type="CommentManagerModel.Group_Expertise" Role="Group_Expertise" Multiplicity="1" />
+    <End Type="CommentManagerModel.Project_Info" Role="Project_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group_Expertise">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project_Info">
+        <PropertyRef Name="Group_Expertise_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Set_of_re__Kit_s__5D95E53A">
+    <End Type="CommentManagerModel.Kit_status" Role="Kit_status" Multiplicity="1" />
+    <End Type="CommentManagerModel.Set_remarks" Role="Set_remarks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kit_status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Set_remarks">
+        <PropertyRef Name="Kit_status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Custom__2A164134">
+    <End Type="CommentManagerModel.Organizations" Role="Organizations" Multiplicity="1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Genera__2BFE89A6">
+    <End Type="CommentManagerModel.Organizations" Role="Organizations" Multiplicity="1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="General_designer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Сreato__2B0A656D">
+    <End Type="CommentManagerModel.Organizations" Role="Organizations" Multiplicity="1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="Сreator_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__Customer_I__662B2B3B">
+    <End Type="CommentManagerModel.Organizations" Role="Organizations" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Customer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__Performer___65370702">
+    <End Type="CommentManagerModel.Organizations" Role="Organizations" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Organizations">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Performer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Project_I__Type___51300E55">
+    <End Type="CommentManagerModel.Type_complex__object" Role="Type_complex__object" Multiplicity="1" />
+    <End Type="CommentManagerModel.Project_Info" Role="Project_Info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Type_complex__object">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project_Info">
+        <PropertyRef Name="Type_complex__object_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Projec__1A9EF37A">
+    <End Type="CommentManagerModel.Project_Info" Role="Project_Info" Multiplicity="0..1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project_Info">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="Project_info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Projects__Status__0C50D423">
+    <End Type="CommentManagerModel.Project_Status" Role="Project_Status" Multiplicity="1" />
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project_Status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Projects">
+        <PropertyRef Name="Status_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Remark__Project___58D1301D">
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="1" />
+    <End Type="CommentManagerModel.Remark" Role="Remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Remark">
+        <PropertyRef Name="Project_info" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__Project_in__671F4F74">
+    <End Type="CommentManagerModel.Projects" Role="Projects" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Projects">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Project_info_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Remark__Response__40F9A68C">
+    <End Type="CommentManagerModel.Response_status" Role="Response_status" Multiplicity="1" />
+    <End Type="CommentManagerModel.Remark" Role="Remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Response_status">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Remark">
+        <PropertyRef Name="Response_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Remark__Response__57DD0BE4">
+    <End Type="CommentManagerModel.Response_Project_Company_" Role="Response_Project_Company_" Multiplicity="0..1" />
+    <End Type="CommentManagerModel.Remark" Role="Remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Response_Project_Company_">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Remark">
+        <PropertyRef Name="Response_project_company_" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Remark__Set_Rema__5E8A0973">
+    <End Type="CommentManagerModel.Set_remarks" Role="Set_remarks" Multiplicity="1" />
+    <End Type="CommentManagerModel.Remark" Role="Remark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Set_remarks">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Remark">
+        <PropertyRef Name="Set_Remarks_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Task__Response_p__6442E2C9">
+    <End Type="CommentManagerModel.Response_Project_Company_" Role="Response_Project_Company_" Multiplicity="1" />
+    <End Type="CommentManagerModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Response_Project_Company_">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="Response_project_company__ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

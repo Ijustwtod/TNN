@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CommentManagerModelContainer" CdmEntityContainer="CommentManagerEntities">
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище CommentManagerModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище CommentManagerModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище CommentManagerModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище CommentManagerModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommentManagerModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище CommentManagerModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CommentManagerModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище CommentManagerModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище CommentManagerModel.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Acceptance_status">
+      <EntityTypeMapping TypeName="CommentManagerModel.Acceptance_status">
+        <MappingFragment StoreEntitySet="Acceptance_status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cause">
+      <EntityTypeMapping TypeName="CommentManagerModel.Cause">
+        <MappingFragment StoreEntitySet="Cause">
+          <ScalarProperty Name="Default_code" ColumnName="Default_code" />
+          <ScalarProperty Name="CodeCEPITR" ColumnName="CodeCEPITR" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contracts">
+      <EntityTypeMapping TypeName="CommentManagerModel.Contracts">
+        <MappingFragment StoreEntitySet="Contracts">
+          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drawing">
+      <EntityTypeMapping TypeName="CommentManagerModel.Drawing">
+        <MappingFragment StoreEntitySet="Drawing">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="CommentManagerModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Lname" ColumnName="Lname" />
+          <ScalarProperty Name="Sname" ColumnName="Sname" />
+          <ScalarProperty Name="Fname_" ColumnName="Fname&#x9;" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="Group_Id" ColumnName="Group_Id" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expertise">
+      <EntityTypeMapping TypeName="CommentManagerModel.Expertise">
+        <MappingFragment StoreEntitySet="Expertise">
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="CommentManagerModel.Group">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Group_Expertise">
+      <EntityTypeMapping TypeName="CommentManagerModel.Group_Expertise">
+        <MappingFragment StoreEntitySet="Group_Expertise">
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kit_status">
+      <EntityTypeMapping TypeName="CommentManagerModel.Kit_status">
+        <MappingFragment StoreEntitySet="Kit_status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="CommentManagerModel.Organizations">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_Info">
+      <EntityTypeMapping TypeName="CommentManagerModel.Project_Info">
+        <MappingFragment StoreEntitySet="Project_Info">
+          <ScalarProperty Name="Group_Expertise_ID" ColumnName="Group_Expertise_ID" />
+          <ScalarProperty Name="Expertise_ID" ColumnName="Expertise_ID" />
+          <ScalarProperty Name="Type_complex__object_ID" ColumnName="Type_complex _object_ID" />
+          <ScalarProperty Name="Object_name" ColumnName="Object_name" />
+          <ScalarProperty Name="Drawing_ID" ColumnName="Drawing_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Project_Status">
+      <EntityTypeMapping TypeName="CommentManagerModel.Project_Status">
+        <MappingFragment StoreEntitySet="Project_Status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projects">
+      <EntityTypeMapping TypeName="CommentManagerModel.Projects">
+        <MappingFragment StoreEntitySet="Projects">
+          <ScalarProperty Name="Сreator_ID" ColumnName="Сreator_ID" />
+          <ScalarProperty Name="General_designer_ID" ColumnName="General_designer_ID" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Status_ID" ColumnName="Status_ID" />
+          <ScalarProperty Name="Project_info_ID" ColumnName="Project_info_ID" />
+          <ScalarProperty Name="Project_manager" ColumnName="Project_manager" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Contract_number" ColumnName="Contract_number" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Remark">
+      <EntityTypeMapping TypeName="CommentManagerModel.Remark">
+        <MappingFragment StoreEntitySet="Remark">
+          <ScalarProperty Name="Set_Remarks_ID" ColumnName="Set_Remarks_ID" />
+          <ScalarProperty Name="Branch_Id" ColumnName="Branch_Id" />
+          <ScalarProperty Name="Expert_comment" ColumnName="Expert_comment" />
+          <ScalarProperty Name="Project_info" ColumnName="Project_info" />
+          <ScalarProperty Name="Expert_review" ColumnName="Expert_review" />
+          <ScalarProperty Name="Response_project_company_" ColumnName="Response_project_company " />
+          <ScalarProperty Name="Response_status" ColumnName="Response_status" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Response_Project_Company_">
+      <EntityTypeMapping TypeName="CommentManagerModel.Response_Project_Company_">
+        <MappingFragment StoreEntitySet="Response_Project_Company ">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Response_status">
+      <EntityTypeMapping TypeName="CommentManagerModel.Response_status">
+        <MappingFragment StoreEntitySet="Response_status">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="CommentManagerModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Set_remarks">
+      <EntityTypeMapping TypeName="CommentManagerModel.Set_remarks">
+        <MappingFragment StoreEntitySet="Set_remarks">
+          <ScalarProperty Name="Kit_status_ID" ColumnName="Kit_status_ID" />
+          <ScalarProperty Name="Count_remarks" ColumnName="Count_remarks" />
+          <ScalarProperty Name="Time_preparing_responses" ColumnName="Time_preparing_responses" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CommentManagerModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Task">
+      <EntityTypeMapping TypeName="CommentManagerModel.Task">
+        <MappingFragment StoreEntitySet="Task">
+          <ScalarProperty Name="Date_Create" ColumnName="Date_Create" />
+          <ScalarProperty Name="Link_On_Documentation" ColumnName="Link_On_Documentation" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="Date_completion" ColumnName="Date_completion" />
+          <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+          <ScalarProperty Name="Acceptance_status_ID" ColumnName="Acceptance_status_ID" />
+          <ScalarProperty Name="Project_info_ID" ColumnName="Project_info_ID" />
+          <ScalarProperty Name="Response_project_company__ID" ColumnName="Response_project_company _ID" />
+          <ScalarProperty Name="Performer_ID" ColumnName="Performer_ID" />
+          <ScalarProperty Name="Cause_code_ID" ColumnName="Cause_code_ID" />
+          <ScalarProperty Name="Attachment" ColumnName="Attachment" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Type_complex__object">
+      <EntityTypeMapping TypeName="CommentManagerModel.Type_complex__object">
+        <MappingFragment StoreEntitySet="Type_complex _object">
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CommentManagerModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Emp_ID" ColumnName="Emp_ID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

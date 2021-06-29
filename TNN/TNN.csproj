@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F63C1F1-F665-415D-92DD-128233E25714}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TNN</RootNamespace>
+    <AssemblyName>TNN</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Acceptance_status.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cause.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentManager.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentManager.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentManager.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommentManager.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommentManager.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Expertise.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group_Expertise.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kit_status.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Organizations.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\AddPages\TaskGridAdd.xaml.cs">
+      <DependentUpon>TaskGridAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\AllProjectPage.xaml.cs">
+      <DependentUpon>AllProjectPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\AllRemarkSetPage.xaml.cs">
+      <DependentUpon>AllRemarkSetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\CauseListPage.xaml.cs">
+      <DependentUpon>CauseListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\ExpertiseGrid.xaml.cs">
+      <DependentUpon>ExpertiseGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\Group_ExpertisePage.xaml.cs">
+      <DependentUpon>Group_ExpertisePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\InTaskPage.xaml.cs">
+      <DependentUpon>InTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyCommentEdit.xaml.cs">
+      <DependentUpon>MyCommentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyCommentPage.xaml.cs">
+      <DependentUpon>MyCommentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyGroupCommentPage.xaml.cs">
+      <DependentUpon>MyGroupCommentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyGroupProjecPage.xaml.cs">
+      <DependentUpon>MyGroupProjecPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyGroupRemarkSetPage.xaml.cs">
+      <DependentUpon>MyGroupRemarkSetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyProjectList.xaml.cs">
+      <DependentUpon>MyProjectList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\MyRemarkSetPage.xaml.cs">
+      <DependentUpon>MyRemarkSetPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\OrganizatoinListPage.xaml.cs">
+      <DependentUpon>OrganizatoinListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\DataGridPages\TypeCompObjListPage.xaml.cs">
+      <DependentUpon>TypeCompObjListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\EditPages\MyGroupCommentEdit.xaml.cs">
+      <DependentUpon>MyGroupCommentEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\EditPages\TaslGrid.xaml.cs">
+      <DependentUpon>TaslGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainWindow\TreeViewPage.xaml.cs">
+      <DependentUpon>TreeViewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile\MainPageProfile.xaml.cs">
+      <DependentUpon>MainPageProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile\ProfileSettingsPage.xaml.cs">
+      <DependentUpon>ProfileSettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile\Settings\PersonalDataPage.xaml.cs">
+      <DependentUpon>PersonalDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile\Settings\SecurityLoginPage.xaml.cs">
+      <DependentUpon>SecurityLoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RestorePassword_Page.xaml.cs">
+      <DependentUpon>RestorePassword_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SendVerificationCode_Page.xaml.cs">
+      <DependentUpon>SendVerificationCode_Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Projects.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project_Info.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Project_Status.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Remark.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Response_Project_Company_.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Response_status.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Role.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Set_remarks.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Task.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Type_complex__object.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>CommentManager.tt</DependentUpon>
+    </Compile>
+    <Page Include="Auth.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Auth.xaml.cs">
+      <DependentUpon>Auth.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="DataDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\AddPages\TaskGridAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\AllProjectPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\AllRemarkSetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\CauseListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\ExpertiseGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\Group_ExpertisePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\InTaskPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyCommentEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyCommentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyGroupCommentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyGroupProjecPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyGroupRemarkSetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyProjectList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\MyRemarkSetPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\OrganizatoinListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\DataGridPages\TypeCompObjListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\EditPages\MyGroupCommentEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\EditPages\TaslGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainWindow\TreeViewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\MainPageProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\ProfileSettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\Settings\PersonalDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\Settings\SecurityLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RestorePassword_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SendVerificationCode_Page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="CommentManager.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CommentManager.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CommentManager.edmx.diagram">
+      <DependentUpon>CommentManager.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CommentManager.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CommentManager.edmx</DependentUpon>
+      <LastGenOutput>CommentManager.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="CommentManager.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CommentManager.edmx</DependentUpon>
+      <LastGenOutput>CommentManager.cs</LastGenOutput>
+    </Content>
+    <Resource Include="icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
